@@ -120,8 +120,7 @@
         "gui",
         "model",
         "borderless",
-        "gpu",
-        "skin"
+        "gpu"
     ],
     "Medium": [
         "menu",
