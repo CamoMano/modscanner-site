@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mod Categorizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #results {
+            margin-top: 20px;
+            text-align: left;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mod Categorizer</h1>
+    <p>Upload your modlist.html file to categorize mods:</p>
+    <input type="file" id="fileInput" accept=".html">
+    <div id="results"></div>
+
+    <script>
+        let config = {};
+
+        const simplifyName = (name) => name.toLowerCase().replace(/[-_]/g, '').trim();
+
+        const categorizeMods = (mods) => {
+            const categories = {
+                "Known": [],
+                "High Probability": [],
+                "Medium Probability": [],
+                "Low Probability": [],
+                "Unknown": [],
+                "Not": []
+            };
+
+            mods.forEach((mod) => {
+                const simplifiedName = simplifyName(mod);
+                let categorized = false;
+
+                for (const [category, keywords] of Object.entries(config)) {
+                    if (keywords.some((keyword) => simplifiedName.includes(keyword))) {
+                        const displayCategory = category === "High" || category === "Medium" || category === "Low"
+                            ? `${category} Probability`
+                            : category;
+                        categories[displayCategory].push(mod);
+                        categorized = true;
+                        break;
+                    }
+                }
+
+                if (!categorized) {
+                    categories["Unknown"].push(mod);
+                }
+            });
+
+            return categories;
+        };
+
+        const parseModlist = (fileContent) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(fileContent, "text/html");
+            return Array.from(doc.querySelectorAll("li")).map((li) =>
+                li.textContent.split("(")[0].trim()
+            );
+        };
+
+        const displayResults = (categories) => {
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            for (const [category, mods] of Object.entries(categories)) {
+                const categoryDiv = document.createElement("div");
+                categoryDiv.innerHTML = `<h3>${category}</h3>`;
+                const ul = document.createElement("ul");
+
+                mods.forEach((mod) => {
+                    const li = document.createElement("li");
+                    li.textContent = mod;
+                    ul.appendChild(li);
+                });
+
+                categoryDiv.appendChild(ul);
+                resultsDiv.appendChild(categoryDiv);
+            }
+        };
+
+        const loadConfig = async () => {
+            try {
+                const response = await fetch("config.json");
+                if (!response.ok) throw new Error(`Failed to load config: ${response.statusText}`);
+                config = await response.json();
+                console.log("Config loaded:", config);
+            } catch (error) {
+                console.error(error);
+                alert("Failed to load configuration file.");
+            }
+        };
+
+        document.getElementById("fileInput").addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const mods = parseModlist(reader.result);
+                    const categories = categorizeMods(mods);
+                    displayResults(categories);
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        window.onload = loadConfig;
+    </script>
+</body>
+</html>
