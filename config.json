@@ -99,7 +99,17 @@
         "cleancut",
         "cleardespawn",
         "dynamiccrosshair",
-        "craftpresence"
+        "craftpresence",
+        "betterfpsdist",
+        "clientcrafting",
+        "gpumemleakfix",
+        "inventoryhud",
+        "simplediscordrichpresence",
+        "skinlayers3d",
+        "biomemusic",
+        "serverbrowser",
+        "aaa_particles",
+        "euphoriapatcher"
     ],
     "High": [
         "animation",
@@ -120,7 +130,8 @@
         "gui",
         "model",
         "borderless",
-        "gpu"
+        "gpu",
+		"particle"
     ],
     "Medium": [
         "menu",
@@ -413,6 +424,12 @@
         "dismountentity",
         "appleskin",
         "cobblemon",
-        "appleskin-fabric"
+        "appleskin-fabric",
+        "biomesoplenty-forge",
+        "yungscavebiomes",
+        "alternate_current-mc1.20",
+        "better-end",
+        "better-nether",
+        "fastasyncworldsave"
     ]
 }
