@@ -1,4 +1,4 @@
-# Mod Categorizer
+# MC Mod Scanner
 
 ## Overview
 This is a basic tool for assisting in narrowing down what mods in a modpack are client-sided. By uploading a modlist generated from your modpack, this tool categorizes mods based on their likelihood of being client-sided using a predefined configuration file (`config.json`).
