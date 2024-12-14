@@ -112,7 +112,15 @@ const displayResults = (categories) => {
 
         mods.forEach((mod) => {
             const li = document.createElement("li");
-            li.textContent = mod.prettyName; // Display the pretty name
+
+            // Create a hyperlink
+            const a = document.createElement("a");
+            a.href = mod.href; // Set the href from the mod's data
+            a.textContent = mod.prettyName; // Set the displayed name
+            a.target = "_blank"; // Open link in a new tab
+            a.rel = "noopener noreferrer"; // Security best practice for external links
+
+            li.appendChild(a); // Add the hyperlink to the list item
             ul.appendChild(li);
         });
 
@@ -120,6 +128,7 @@ const displayResults = (categories) => {
         resultsDiv.appendChild(categoryDiv);
     }
 };
+
 
 
     const loadConfig = async () => {
