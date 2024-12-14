@@ -109,6 +109,12 @@
         "biomemusic",
         "serverbrowser",
         "aaa_particles",
+		"better-fps-render-distance",
+		"bisecthosting-server-integration-menu",
+		"boat-item-view",
+		"config-menus",
+		"repurposed-structures",
+		"forge-cit",
         "euphoria-patcher"
     ],
     "High": [
@@ -435,6 +441,7 @@
         "better-end",
         "better-nether",
         "fastasyncworldsave",
-		"enriched"
+		"enriched",
+		"cut-through"
     ]
 }
