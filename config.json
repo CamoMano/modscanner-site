@@ -124,6 +124,10 @@
 		"fast-ip-ping",
 		"complementary-reimagined",
 		"nekos-enchanted-books",
+		"euphoria-patches",
+		"overflowing-bars",
+		"pick-up-notifier",
+		"stay-true",
 		"euphoria-patcher"
 	],
 	"High": [
@@ -150,6 +154,7 @@
 		"fullscreen",
 		"gpu",
 		"particle",
+		"shader",
 		"music"
 	],
 	"Medium": [
@@ -174,6 +179,7 @@
 		"recipe",
 		"structure",
 		"spawn",
+		"chest",
 		"biome"
 	],
 	"Not": [
@@ -472,6 +478,12 @@
 		"radium-reforged",
 		"noisium",
 		"magnum-torch",
+		"ping-wheel",
+		"pastel-shaders",
+		"enders-delight",
+		"leaves-be-gone",
+		"grass-overhaul",
+		"waystones",
 		"cut-through"
 	]
 }
