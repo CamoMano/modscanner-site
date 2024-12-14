@@ -13,6 +13,7 @@
     <p>Upload the <strong>modlist.html</strong> from any CurseForge modpack to narrow down what mods are client-sided:</p>
     <input type="file" id="fileInput" accept=".html" />
     <div id="results"></div>
+
     <footer>
         Built with <span>&hearts;</span> for Minecraft modders. 
         <a href="https://github.com/CamoMano/modscanner-site">View on GitHub</a>
@@ -21,7 +22,15 @@
     <script>
         let config = {};
 
-        // Normalize mod names and keywords
+        const categoryDescriptions = {
+            Known: "These mods are explicitly marked as client-sided.",
+            "High Probability": "These mods are highly likely to be client-sided.",
+            "Medium Probability": "These mods might be client-sided.",
+            "Low Probability": "These mods are less likely to be client-sided.",
+            Unknown: "These mods could not be categorized.",
+            Not: "These mods are explicitly marked as not client-sided."
+        };
+
         const simplifyName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, "").trim();
 
         const categorizeMods = (mods) => {
@@ -92,7 +101,11 @@
 
             for (const [category, mods] of Object.entries(categories)) {
                 const categoryDiv = document.createElement("div");
-                categoryDiv.innerHTML = `<h3>${category}</h3>`;
+                categoryDiv.innerHTML = `
+                    <h3>${category}</h3>
+                    <p class="category-description">${categoryDescriptions[category]}</p>
+                `;
+
                 const ul = document.createElement("ul");
 
                 mods.forEach((mod) => {
