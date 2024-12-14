@@ -109,10 +109,11 @@
         "biomemusic",
         "serverbrowser",
         "aaa_particles",
-        "euphoriapatcher"
+        "euphoria-patcher"
     ],
     "High": [
         "animation",
+		"animated",
         "fps",
         "sound",
         "audio",
@@ -125,13 +126,16 @@
         "client",
         "cull",
         "texture",
+		"resource",
         "visual",
         "tooltip",
         "gui",
         "model",
         "borderless",
+		"fullscreen",
         "gpu",
-		"particle"
+		"particle",
+		"music"
     ],
     "Medium": [
         "menu",
