@@ -430,6 +430,7 @@
         "alternate_current-mc1.20",
         "better-end",
         "better-nether",
-        "fastasyncworldsave"
+        "fastasyncworldsave",
+		"enriched"
     ]
 }
