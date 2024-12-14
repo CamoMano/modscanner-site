@@ -102,7 +102,7 @@
         "craftpresence",
         "betterfpsdist",
         "clientcrafting",
-        "gpumemleakfix",
+        "fix-gpu-memory-leak",
         "inventoryhud",
         "simplediscordrichpresence",
         "skinlayers3d",

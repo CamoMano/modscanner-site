@@ -107,7 +107,8 @@
     <script>
         let config = {};
 
-const simplifyName = (name) => name.toLowerCase().replace(/[-_]/g, "").trim();
+// Normalize mod names and keywords
+const simplifyName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, "").trim();
 
 const categorizeMods = (mods) => {
     const categories = {
@@ -120,11 +121,10 @@ const categorizeMods = (mods) => {
     };
 
     mods.forEach((mod) => {
-        const simplifiedName = simplifyName(mod);
+        const simplifiedName = simplifyName(mod); // Normalize mod name
         let categorized = false;
 
         for (const [category, keywords] of Object.entries(config)) {
-            // Simplify each keyword in the config
             if (keywords.some((keyword) => simplifiedName.includes(simplifyName(keyword)))) {
                 const displayCategory =
                     category === "High" || category === "Medium" || category === "Low"
@@ -143,7 +143,6 @@ const categorizeMods = (mods) => {
 
     return categories;
 };
-
 
             const parseModlist = (fileContent) => {
                 const parser = new DOMParser();
