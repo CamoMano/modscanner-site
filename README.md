@@ -1,17 +1,20 @@
-# Mod Categorizer
+# MC Mod Scanner
 
 ## Overview
-This is a basic tool for assisting in narrowing down what mods in a modpack are client-sided. By uploading a modlist generated from your modpack, this tool categorizes mods based on their likelihood of being client-sided using a predefined configuration file (`config.json`).
+This is a basic tool for assisting in narrowing down what mods in a modpack are client-sided. By uploading a modpack ZIP file containing a `modlist.html`, this tool categorizes mods based on their likelihood of being client-sided using a predefined configuration file (`config.json`).
 
 ## Features
-- **Simple File Upload**: Upload your `modlist.html` file to get instant categorization.
+- **Modpack ZIP File Upload**: Upload a modpack ZIP file that contains a `modlist.html` file for instant categorization.
 - **Automatic Categorization**: Mods are grouped into categories such as `Known`, `High Probability`, `Medium Probability`, `Low Probability`, `Unknown`, and `Not`.
+- **Hyperlinked Mod Names**: Categorized mods are displayed as clickable links to their respective webpages for easy reference.
 
 ## Usage
 1. Open the website hosted on GitHub Pages.
-2. Ensure you have a `modlist.html` file generated from your modpack.
-3. Click the `Upload` button and select your `modlist.html` file.
-4. View the categorized results instantly.
+2. Prepare a modpack ZIP file that contains the `modlist.html` file (usually found in the exported modpack).
+3. Click the `Upload` button and select the ZIP file.
+4. View the categorized results instantly, with mod names displayed as hyperlinks.
+
+> **Note**: The uploaded ZIP file must contain a `modlist.html` file. If this file is not present, the tool will not work.
 
 ## Categories
 The mods will be grouped into the following categories:
