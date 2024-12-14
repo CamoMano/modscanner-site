@@ -64,6 +64,7 @@
         "justzoom_forge",
         "memorysettings",
         "oculus-mc",
+		"oculus",
         "entity_collision_fps_fix",
         "invhud",
         "defaultoptions",
@@ -113,7 +114,6 @@
 		"bisecthosting-server-integration-menu",
 		"boat-item-view",
 		"config-menus",
-		"repurposed-structures",
 		"forge-cit",
         "euphoria-patcher"
     ],
@@ -162,6 +162,9 @@
         "server",
         "voice",
         "block",
+		"recipe",
+		"structure",
+		"spawn"
         "biome"
     ],
     "Not": [
@@ -442,6 +445,10 @@
         "better-nether",
         "fastasyncworldsave",
 		"enriched",
+		"repurposed-structures",
+		"visual-workbench",
+		"openblocks-elevator",
+		"openblocks",
 		"cut-through"
     ]
 }
