@@ -124,24 +124,43 @@ const categorizeMods = (mods) => {
         const simplifiedName = simplifyName(mod); // Normalize mod name
         let categorized = false;
 
-        for (const [category, keywords] of Object.entries(config)) {
-            if (keywords.some((keyword) => simplifiedName.includes(simplifyName(keyword)))) {
-                const displayCategory =
-                    category === "High" || category === "Medium" || category === "Low"
-                        ? `${category} Probability`
-                        : category;
-                categories[displayCategory].push(mod);
-                categorized = true;
-                break;
+        // Check Known first
+        if (config.Known.some((keyword) => simplifiedName.includes(simplifyName(keyword)))) {
+            categories["Known"].push(mod);
+            categorized = true;
+        }
+
+        // Check Not next
+        if (!categorized && config.Not.some((keyword) => simplifiedName.includes(simplifyName(keyword)))) {
+            categories["Not"].push(mod);
+            categorized = true;
+        }
+
+        // Check other categories only if not already categorized
+        if (!categorized) {
+            for (const [category, keywords] of Object.entries(config)) {
+                if (category === "Known" || category === "Not") continue; // Skip Known and Not here
+                if (keywords.some((keyword) => simplifiedName.includes(simplifyName(keyword)))) {
+                    const displayCategory =
+                        category === "High" || category === "Medium" || category === "Low"
+                            ? `${category} Probability`
+                            : category;
+                    categories[displayCategory].push(mod);
+                    categorized = true;
+                    break;
+                }
             }
         }
 
+        // If no match, add to Unknown
         if (!categorized) {
             categories["Unknown"].push(mod);
         }
     });
 
     return categories;
+};
+
 };
 
             const parseModlist = (fileContent) => {
