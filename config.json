@@ -116,6 +116,14 @@
 		"boat-item-view",
 		"config-menus",
 		"forge-cit",
+		"item-highlighter",
+		"geckoanimfix",
+		"longer-chat-history",
+		"mandalas-gui-vanilla-crosshair",
+		"unofficial-mandalas-gui-dark-mode-mod",
+		"fast-ip-ping",
+		"complementary-reimagined",
+		"nekos-enchanted-books",
 		"euphoria-patcher"
 	],
 	"High": [
@@ -450,6 +458,20 @@
 		"visual-workbench",
 		"openblocks-elevator",
 		"openblocks",
+		"snow-real-magic",
+		"oceans-delight",
+		"log-begone",
+		"faster-random",
+		"snow-under-trees",
+		"long-nbt-killer",
+		"krypton-reforged",
+		"krypton",
+		"simple-storage-network",
+		"alternate-current",
+		"lendercataclysm",
+		"radium-reforged",
+		"noisium",
+		"magnum-torch",
 		"cut-through"
 	]
 }
